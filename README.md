@@ -36,20 +36,21 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/99b355c9-092b-409e-934d-56d0ce73e50e' width="600px">
 
 ## correlation 종속변수와의 상관관계 분석
-<img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/b675d383-f5a2-4de2-9435-91f38c033a99' width="600px">
+<img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/b675d383-f5a2-4de2-9435-91f38c033a99' width="600px">  
+
 위 이미지와 같이 Area Income 즉 지역의 수입이 가장 상관관계가 높았으며, 가장 상관관계가 낮은 Feature는 침실의 개수였습니다.   
 후에 OLS(최소제곱법)와 VIF 점수를 토대로 correlation과 비교하여 분석하겠습니다.
 
 ### 📌 전처리 완료
 ## ✨ 1 Cycle  
 > ### sklearn(사이킷런 라이브러리) 으로 LinearRegression 및 이외 회귀 모델 훈련
-- LinearRegression 훈련 Sourcode PNG
-  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/19c1d7cc-36d2-4793-936d-cd98c3fe2a76' width="800px" style="margin-bottom:10px">  
+- #### LinearRegression 훈련 Sourcode PNG
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/e18c9729-c907-4ebb-a002-f026b811edbf' width="800px" style="margin-bottom:10px">  
 
-- PolynomialRegression 훈련 (degree->2) PNG
+- #### PolynomialRegression 훈련 (degree->2) PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/d6cb6db9-c0be-4bad-8766-ee2483835532' width="800px" style="margin-bottom:10px">
 
-- RandomForest, GradientBoosting, XGBM, LGBM Regressor PNG
+- #### RandomForest, GradientBoosting, XGBM, LGBM Regressor PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/39fe4ebc-1efb-43ec-8d78-4fbae263b9f1' width="800px" style="margin-bottom:10px">
 
 - ### 💡 Polynomial Regression Distribution (다항회귀모델에서 최적의 항 차수를 찾기)
