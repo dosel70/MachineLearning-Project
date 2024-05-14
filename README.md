@@ -130,4 +130,11 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 - 이는 침실의 개수가 주택 가격에 대해 다른 독립변수들에 비해 영향력이 적다는 것을 의미합니다.
 - 다음으로 VIF 점수를 통해서 독립변수들의 다중공선성을 확인 해 보겠습니다.
   
-<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/21dcaff2-e793-4181-9c6e-2a75e0887836" width="600px">
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/21dcaff2-e793-4181-9c6e-2a75e0887836" width="600px">  
+
+> 위 이미지와 같이 주택의 방의 개수의 다중공선성 점수가 가장 높은 것을 확인 할 수 있습니다.
+> 방의 개수의 경우 침실의 개수를 나타내는 Feature와 연관성이 높기 때문에 아마 침실의 개수 Feature 때문에 다중공선성 점수가 높아진 것으로 판단 할 수 있습니다.
+> 결과적으로 종속변수와의 상관관계가 더 낮은 침실의 개수를 제거 하면 방의 개수의 다중공선성을 해소할 수 있을 것입니다.
+
+ <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/c748e4f4-0930-40bb-aa68-6a71fa06fd56" width="500px">
+
