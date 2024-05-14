@@ -16,7 +16,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
     
   - 해당 프로젝트에서는 Ridge, Lasso를 활용하여 정규화 작업도 시도 하였으며, Pytorch로 각 Feature들의 가중치와 편향을 구하였고, 검증데이터셋과 훈련데이터셋의 MSE값을 비교하여 과적합 여부도 분석해보았습니다.
   
-##  2. 📌 [제품 품질 점수 회귀 분석 프로젝트(Click!)](#제품-품질-점수-회귀-분석)(https://github.com/dosel70/MachineLearning-Project/wiki/ML-Project-%E2%80%90-Manufact-Quality-Rating-Predict-(Regression%E2%80%90Non-LinearData))
+##  2. 📌 [제품 품질 점수 회귀 분석 프로젝트(Click!)](https://github.com/dosel70/MachineLearning-Project/wiki/ML-Project-%E2%80%90-Manufact-Quality-Rating-Predict-(Regression%E2%80%90Non-LinearData))
   - #### 😊 프로젝트 설명 (제품의 품질 평가 점수 예측 프로젝트)
   - 해당 프로젝트는 비선형 데이터로 이루어진 데이터셋으로 이루어져 있습니다.
 
