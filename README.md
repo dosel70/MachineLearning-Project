@@ -33,10 +33,13 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
   - [데이터 전처리 (결측치, 중복된 데이터, 이상치 등 제거 및 일반화 작업)](#전처리-작업)
   - [독립변수와 종속변수들의 상관관계 확인](#correlation-종속변수와의-상관관계-분석)
   - [pytorch 및 sklearn 라이브러리 회귀 모델들로 분석](#📌-전처리-완료)
-  - [1 Cycle - Pytorch & 사이킷런 라이브러리로 회귀모델 데이터 분석](#1-Cycle)
+  - [1 Cycle - Pytorch & 사이킷런 라이브러리로 회귀모델 데이터 회귀 분석](#1-Cycle)
   - [2 Cycle - Pytorch로 과적합 분석 ](#2-Cycle)
   - [3 Cycle -Sklearn으로 과적합 분석 ](#3-Cycle)
   - [4 Cycle - OLS 회귀분석 & 다중공선성 확인](#4-Cycle)
+  - [5 Cycle - 다중공선성 해소한 데이터세트로 과적합 여부 확인](#5-Cycle)
+  - [6 Cycle - Lasso & Ridge (Regularized_linear_regression 정규화된 선형 회귀) 분석](#6-Cycle)
+  - [7 Cycle - 회귀모델 데이터 회귀 분석 및 기존 데이터세트와 성능 비교](#7-Cycle)
   - [각 모델들의 성능(MSE, RMSE, R2 Score) 분석](#💡-Total-Result)
 
 ## 데이터세트(csv파일 PNG) <USA House Price Predict>
@@ -69,7 +72,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 - #### LinearRegression 훈련 Sourcode PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/e18c9729-c907-4ebb-a002-f026b811edbf' width="800px" style="margin-bottom:10px">  
   
-  > 위 이미지와 같이 coef_를 통해서 각 FEature 마다 기울기와 해당 데이터의 편향 그리고 손실값(MSE)을 산출하였습니다.  
+  > 위 이미지와 같이 coef_를 통해서 각 Feature 마다 기울기와 해당 데이터의 편향을 산출하였습니다.  
   
 - #### PolynomialRegression 훈련 (degree->2) PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/d6cb6db9-c0be-4bad-8766-ee2483835532' width="800px" style="margin-bottom:10px">
@@ -136,5 +139,65 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 > 방의 개수의 경우 침실의 개수를 나타내는 Feature와 연관성이 높기 때문에 아마 침실의 개수 Feature 때문에 다중공선성 점수가 높아진 것으로 판단 할 수 있습니다.
 > 결과적으로 종속변수와의 상관관계가 더 낮은 침실의 개수를 제거 하면 방의 개수의 다중공선성을 해소할 수 있을 것입니다.
 
- <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/c748e4f4-0930-40bb-aa68-6a71fa06fd56" width="500px">
+ <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/c748e4f4-0930-40bb-aa68-6a71fa06fd56" width="500px">  
 
+ ### 📌 Feature 제거 후 OLS 분석 결과
+ <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/f160bf16-017d-41d9-9992-049a76ed57cc" width="500px">  
+ 
+ > OLS 회귀분석 결과 R2 Score는 기존 0.964로 동일 한 것을 볼 수 있습니다.  
+
+ ### 📌 Feature 제거 후 VIF 점수 산출  
+ <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/1c896e34-ac19-400e-989c-633dea4ff320" width="500px">  
+ 
+ > VIF 산출 결과 주택의 방 개수 Feature의 다중공선성 점수가 많이 감소하여 이전에 비해 다중공선성 문제를 해소할 수 있었습니다.
+
+ ### 📃 4 Cycle Result
+ > OLS 회귀분석과 VIF점수를 통한 다중공선성 문제를 해소를 하였습니다.
+>
+> 위 작업을 통해 회귀모델의 성능을 평가하고, 과적합 여부를 확인 하겠습니다.
+
+## 5 Cycle  
+> ### Feature(주택의 침실의 개수) 제거 후 과적합 확인
+
+#### Pytorch로 과적합 분석 시각화 (Train Data loss vs Validation Data loss)
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/c517060f-cceb-4432-97e0-a6c8353aa703" width="700px">  
+
+> Pytorch로 과적합 분석을 시각화 한 결과 기존 Feature 제거 전 데이터와 마찬가지로 과적합은 존재하지 않았습니다.  
+
+#### Sklearn으로 과적합 분석 시각화 
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/fdaea798-2e20-425e-9d81-43abdeed780a" width="700px">  
+
+> cross_val_score 함수를 활용하여 과적합을 분석한 결과 역시 Feature를 제거해도 과적합은 발생하지 않았습니다.
+
+### 📃 5 Cycle Result  
+> 해당 데이터세트에서 다중 공선성을 해소하기 위해 침실의 개수를 나타내는 Feature를 제거하여도, 과적합 문제는 발생하지 않습니다.
+> 다음으로는 Feature 제거 전 데이터에서 Lasso, Ridge 회귀를 사용하여 모델의 규제 효과와 성능을 분석하겠습니다.
+
+## 6 Cycle
+> ### Feature 제거 전 원래 데이터셋에서 Lasso, Ridge 회귀를 활용하여 일반화 성능 평가
+
+- #### Lasso
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/d5014bfd-41d2-4ea6-8038-062799c41c80" width="600px">
+
+> #### 📌 다중공선성으로 보이는 Feature 제거하기 전 데이터에서 Lasso 회귀분석을 한 결과 다양한 규제 값에서도 lasso 회귀 모델의 성능지표가 거의 일정하게 유지되었습니다.
+> #### 이는 해당 데이터셋이 과적합 문제를 겪지 않고 있으며, 규제 파라미터를 변경해도 모델 성능에 큰 영향을 미치지 않음을 알 수 있습니다.
+> #### **따라서 해당 데이터는 이미 최적화되어있기에, 추가적인 규제는 필요하지 않을 수 있습니다.**
+> ##### 추가적으로 이러한 결론을 바탕으로 다음 단계로 Ridge 회귀를 적용하여 모델의 성능을 비교해보겠습니다.
+
+- #### Ridge
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/2c147fec-9722-4747-832c-03c98b09d23c" width="600px">  
+
+> #### 📌 Ridge 회귀 분석도 마찬가지로 다양한 규제 파라미터 값을 주어도 회귀모델의 성능지표가 거의 일정하게 유지되었으며, 특히 규제값이 1000일 때, 성능이 꽤 저하됨을 관찰했습니다. 이러한 결과는 1000과 같은 너무 큰 규제는 피해야 함을 의미합니다.
+>
+> #### 결론적으로 해당 데이터셋이 과적합 문제를 겪지 않고 있으며, Ridge 회귀를 통해서 따로 VIF를 산출해서 제거할 필요 없이 RIdge 회귀를 통해 다중공선성을 잘 해결할 수 있음을 알 수 있습니다.
+
+### 📃 6 Cycle Result
+> 해당 데이터셋은 과적합 문제가 없으며, Lasso와 Ridge 회귀 모델에서 다양한 규제(alpha) 값에 대해 성능이 안정적으로 유지되었습니다. 이는 데이터가 잘 정제되어 있고, 다중공선성이 크지 않음을 나타냅니다. 따라서, 추가적인 규제 조정 없이도 모델의 성능은 충분히 양호하며, 과도한 규제는 성능 저하를 초래할 수 있습니다.
+
+## 7 Cycle 
+> ### 다중공선성 Feature를 제거한 데이터와 기존 데이터와의  회귀모델 성능 비교
+
+- 기존 데이터 회귀모델 성능 비교 그래프
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/46b63e48-1762-4b18-8ab7-2f5c5d1b7bd6" width="800px">
+
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/a0f9e3d0-a72c-4ba2-a774-a610d6162d4c" width="800px">
