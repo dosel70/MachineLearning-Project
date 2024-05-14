@@ -11,8 +11,13 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
   - [심부전 환자 분류 분석 (Logistic Regression)](#심부전-환자-분류-분석 (Logistic Regression))   
   
   - [관상동맥질환 환자 분류 분석 (High Dimension - Dimension Reduction)](#관상동맥질환-환자-분류-분석 (High Dimension - Dimension Reduction))   
-  
+---
+
+# 📈 선형 회귀 분석 프로젝트  
+
 ## 미국 주택 가격 예측 회귀분석
+<img src="https://blog.kakaocdn.net/dn/r7ewt/btq8TSge90l/Ie7lNsaBoAoXWafOnsbI60/img.jpg">    
+
   ### 📌 데이터 세트 주제 
   - 해당 지역의 수익, 방의 개수, 침실의 개수 등의 Feature들을 활용하여 주택 가격의 값을 회귀분석하여 예측합니다.
   #### 📌 컬럼별 설명
@@ -29,6 +34,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
   - [독립변수와 종속변수들의 상관관계 확인](#correlation-종속변수와의-상관관계-분석)
   - [pytorch 및 sklearn 라이브러리 회귀 모델들로 분석](#📌-전처리-완료)
   - [1 Cycle - 사이킷런 라이브러리로 회귀모델 데이터 분석](#1-Cycle)
+  - [2 Cycle - Pytorch로 과적합 분석 ](#2-Cycle)
   - [과적합 유무 분석](#과적합-분석)
   - [각 모델들의 성능(MSE, RMSE, R2 Score) 분석](#💡-Total-Result)
 
@@ -42,20 +48,42 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 위 이미지와 같이 Area Income 즉 지역의 수입이 가장 상관관계가 높았으며, 가장 상관관계가 낮은 Feature는 침실의 개수였습니다.   
 후에 OLS(최소제곱법)와 VIF 점수를 토대로 correlation과 비교하여 분석하겠습니다.
 
-### 📌 전처리 완료
+### 📌 전처리 완료  
+
 ## 1 Cycle  
 > ### sklearn(사이킷런 라이브러리) 으로 LinearRegression 및 이외 회귀 모델 훈련
 - #### LinearRegression 훈련 Sourcode PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/e18c9729-c907-4ebb-a002-f026b811edbf' width="800px" style="margin-bottom:10px">  
-
+  
+  > 위 이미지와 같이 coef_를 통해서 각 FEature 마다 기울기와 해당 데이터의 편향을 산출하였습니다.  
+  
 - #### PolynomialRegression 훈련 (degree->2) PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/d6cb6db9-c0be-4bad-8766-ee2483835532' width="800px" style="margin-bottom:10px">
 
 - #### RandomForest, GradientBoosting, XGBM, LGBM Regressor PNG
   <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/39fe4ebc-1efb-43ec-8d78-4fbae263b9f1' width="800px" style="margin-bottom:10px">
 
-- ### 💡 Polynomial Regression Distribution (다항회귀모델에서 최적의 항 차수를 찾기)
-  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/8b0b7ae4-3757-4ad3-8296-08e807045905' width="1000px" style="margin-bottom: 10px">
+- #### 💡 Polynomial Regression Distribution (다항회귀모델에서 최적의 항 차수를 찾기)
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/8b0b7ae4-3757-4ad3-8296-08e807045905' width="1000px" style="margin-bottom: 10px">  
+  > 다항회귀로 분석을 할때에는 해당 데이터에서는 항 차수가 2차항에서 3차항으로 설정할때 가장 성능이 높게 나왔습니다.
 
-- ### 💡 Total Regressor's R2 Score (전체 회귀모델 성능 분석 (다항회귀 제외))
-  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/ebf6d888-678e-41f6-a146-6f32b7e1b005' width="1000px" style="margin-bottom:10px">
+- #### 💡 Total Regressor's R2 Score (전체 회귀모델 성능 분석 (다항회귀 제외))
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/ebf6d888-678e-41f6-a146-6f32b7e1b005' width="1000px" style="margin-bottom:10px">  
+  
+### 📃 1 Cycle Result
+> Linear Regression 선형 회귀 모델의 경우 R2 Score가 0.9211로 모든 회귀모델 중에서 가장 높은 수치를 기록하였습니다.
+> 다른 회귀모델들도 모두 0.8 이상의 성능 점수를 가졌기 때문에 모두 성능이 좋다고 볼 수 있지만, 선형회귀모델로 분석하였을 때 성능이 가장 높게 나오므로, 해당 데이터는 선형 데이터에 가깝습니다.
+
+## 2 Cycle
+> ### Pytorch로 손실값 산출 및 과적합 분석
+> 훈련데이터와 검증데이터간의 손실값 차이를 시각화하여 과적합의 여부를 확인 할 수 있습니다.
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/eb63cdf8-fd5c-460b-b74c-39a49d695fd6" width="600px">
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/506112a8-72ce-4f26-8c04-dc35c10bec53" width="600px">
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/83953fe2-3e50-4871-b9f5-c62c2c2780b6" width="600px">
+
+#### ✨ 훈련 데이터와 검증 데이터의 손실값 차이 시각화 
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/d233c887-2fa2-4d1c-901a-264d4cdf8f4d" width="700px">   
+
+#### **위 시각화 이미지와 같이 훈련데이터 loss값과 검증데이터의 loss값이 epoch 횟수가 증가함에 따라 거의 동일한 loss값으로 나오는 것을 볼 수 있습니다.**  
+#### 📌 따라서, 본 데이터셋은 OLS 회귀 분석이나 다중공선성 검토를 수행하기 전부터 과적합 문제가 존재하지 않는 것으로 보입니다.   
+> #### 이는 데이터의 특성상 독립변수들이 종속변수에 대해 유의미한 영향을 미치며, 다중공선성 또한 낮아 모델의 안정성을 보장하고 있음을 시사합니다. 
