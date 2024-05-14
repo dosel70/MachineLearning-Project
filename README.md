@@ -26,8 +26,8 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
     
   ### ✏️ 미국 주택 가격 예측 회귀 프로젝트 진행 방향성
   - [데이터 전처리 (결측치, 중복된 데이터, 이상치 등 제거 및 일반화 작업)](#전처리-작업)
-  - [독립변수와 종속변수들의 상관관계 확인](#correlation)
-  - [pytorch 및 sklearn 라이브러리 회귀 모델들로 분석](#✨-1Cycle)
+  - [독립변수와 종속변수들의 상관관계 확인](#correlation-종속변수와의-상관관계-분석)
+  - [pytorch 및 sklearn 라이브러리 회귀 모델들로 분석](#✨-1-Cycle)
   - [과적합 유무 분석](#과적합-분석)
   - [각 모델들의 성능(MSE, RMSE, R2 Score) 분석](#💡-Total-Result)
 
@@ -35,5 +35,25 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 - ✏️ 해당 데이터세트 에서는 결측치 및 중복치가 없었으며 컬럼들의 분포 또한 아래와 같이 정규분포화가 잘 되어 있습니다.
 <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/99b355c9-092b-409e-934d-56d0ce73e50e' width="600px">
 
-## correlation (종속변수와의 상관관계 분석)
+## correlation 종속변수와의 상관관계 분석
 <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/b675d383-f5a2-4de2-9435-91f38c033a99' width="600px">
+위 이미지와 같이 Area Income 즉 지역의 수입이 가장 상관관계가 높았으며, 가장 상관관계가 낮은 Feature는 침실의 개수였습니다.   
+후에 OLS(최소제곱법)와 VIF 점수를 토대로 correlation과 비교하여 분석하겠습니다.
+
+### 📌 전처리 완료
+## ✨ 1 Cycle  
+> ### sklearn(사이킷런 라이브러리) 으로 LinearRegression 및 이외 회귀 모델 훈련
+- LinearRegression 훈련 Sourcode PNG
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/19c1d7cc-36d2-4793-936d-cd98c3fe2a76' width="800px" style="margin-bottom:10px">  
+
+- PolynomialRegression 훈련 (degree->2) PNG
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/d6cb6db9-c0be-4bad-8766-ee2483835532' width="800px" style="margin-bottom:10px">
+
+- RandomForest, GradientBoosting, XGBM, LGBM Regressor PNG
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/39fe4ebc-1efb-43ec-8d78-4fbae263b9f1' width="800px" style="margin-bottom:10px">
+
+- ### 💡 Polynomial Regression Distribution (다항회귀모델에서 최적의 항 차수를 찾기)
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/8b0b7ae4-3757-4ad3-8296-08e807045905' width="1000px" style="margin-bottom: 10px">
+
+- ### 💡 Total Regressor's R2 Score (전체 회귀모델 성능 분석 (다항회귀 제외))
+  <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/ebf6d888-678e-41f6-a146-6f32b7e1b005' width="1000px" style="margin-bottom:10px">
