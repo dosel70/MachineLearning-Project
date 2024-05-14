@@ -40,7 +40,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
   - [5 Cycle - 다중공선성 해소한 데이터세트로 과적합 여부 확인](#5-Cycle)
   - [6 Cycle - Lasso & Ridge (Regularized_linear_regression 정규화된 선형 회귀) 분석](#6-Cycle)
   - [7 Cycle - 회귀모델 데이터 회귀 분석 및 기존 데이터세트와 성능 비교](#7-Cycle)
-  - [각 모델들의 성능(MSE, RMSE, R2 Score) 분석](#💡-Total-Result)
+  - [최종 결론](#Total-Result)
 
 ## 데이터세트(csv파일 PNG) <USA House Price Predict>
 <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/2d1b047e-6a98-450b-afa3-5743575044b2' width="600px">
@@ -200,4 +200,9 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 - 기존 데이터 회귀모델 성능 비교 그래프
 <img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/46b63e48-1762-4b18-8ab7-2f5c5d1b7bd6" width="800px">
 
-<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/a0f9e3d0-a72c-4ba2-a774-a610d6162d4c" width="800px">
+<img src="https://github.com/dosel70/MachineLearning-Project/assets/143694489/a0f9e3d0-a72c-4ba2-a774-a610d6162d4c" width="800px">  
+
+## Total Result
+- ### ✨ 최종결론
+- 다중공선성을 해소하기 위해 Feature를 제거한 데이터셋과 기존 데이터셋과의 회귀모델들의 성능을 비교한 결과 큰 변화폭은 없었으며, Decisiton Tree Regressor, XGBM과 LGBM 회귀모델의 성능을 소폭 증가시킬 수 있었지만, RandomForest회귀모델과 GradientBoosting Regressor회귀모델의 성능은 소폭 감소하였습니다.
+- 그러나 아주 큰 변화라고 볼 수 없기 때문에, 기존 데이터셋 자체의 데이터가 잘 정제되어 있음을 알 수 있었습니다.
