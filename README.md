@@ -4,7 +4,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 </div>
 
 ## 목차
-  - [미국 주택 가격 예측 회귀분석 프로젝트](#미국-주택-가격-예측-회귀분석)
+  - [미국 주택 가격 예측 회귀분석 프로젝트](https://github.com/dosel70/MachineLearning-Project/wiki/ML-Project-%E2%80%90-USA-House-Price-Predict-(Regression%E2%80%90LinearData))
   
   - [제품 품질 점수 회귀 분석 프로젝트](#제품-품질-점수-회귀-분석)  
   
