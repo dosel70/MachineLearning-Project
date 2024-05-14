@@ -35,3 +35,5 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 - ✏️ 해당 데이터세트 에서는 결측치 및 중복치가 없었으며 컬럼들의 분포 또한 아래와 같이 정규분포화가 잘 되어 있습니다.
 <img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/99b355c9-092b-409e-934d-56d0ce73e50e' width="600px">
 
+## correlation (종속변수와의 상관관계 분석)
+<img src='https://github.com/dosel70/MachineLearning-Project/assets/143694489/b675d383-f5a2-4de2-9435-91f38c033a99' width="600px">
