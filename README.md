@@ -41,7 +41,7 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 
   - 해당 프로젝트에서는 lda로 차원축소를 수행하였고, 따로 pytorch로 검증데이터와 훈련데이터와의 손실값 차이를 비교하여, 과적합을 해소할 수 있었습니다.
   
-##  4. 📌 [관상동맥질환 환자 분류 분석 (High Dimension - Dimension Reduction)](#관상동맥질환-환자-분류-분석 (High Dimension - Dimension Reduction))   
+##  4. 📌 [관상동맥질환 환자 분류 분석 (High Dimension - Dimension Reduction) Click!](https://github.com/dosel70/MachineLearning-Project/wiki/ML-Project-%E2%80%90-Coronary-Artery-Predict-(Dimension_reduction))   
   - #### 😊 프로젝트 설명 (관상동맥질환 환자 예측 분류 프로젝트)
   - 해당 프로젝트는 고차원데이터에서 pca , lda 차원축소를 활용하여 분류 분석을 하였습니다.
 
