@@ -28,6 +28,8 @@ pytorch, sklearn, 다양한 회귀 & 분류 모델들 , 그리고 차원축소, 
 
   - 해당 프로젝트 에서는 Gridsearch CV와 KFold 교차검증을 수행하였고, 여기서 하이퍼파라미터 튜닝을 통해 검증데이터와 훈련데이터와의 손실값 차이를 줄여주어서 과적합을 해소하였습니다.  
   - 또, VIF로 다중공선성 점수를 산출하여 다중공선성 문제를 해소할 수 있었습니다.
+
+  - 종속변수 데이터의 분포의 일반화를 위해 PowerTransformer, Log 치환 등을 통해 작업을 진행하였습니다.
   
 ##  3. 📌 [심부전 환자 분류 분석 (Logistic Regression) Click!](https://github.com/dosel70/MachineLearning-Project/wiki/ML-Project-%E2%80%90-HeartFailure-Classifier-Project)   
   - #### 😊 프로젝트 설명 (심부전 질환 환자 예측 분류 프로젝트)
